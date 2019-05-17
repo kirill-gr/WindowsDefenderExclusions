@@ -95,6 +95,8 @@ $processExclusions.Add('vbcscompiler.exe') > $null
 $processExclusions.Add('nuget.exe') > $null
 $processExclusions.Add('cake.exe') > $null
 $processExclusions.Add('packet.exe') > $null
+$processExclusions.Add('csc.exe') > $null
+$processExclusions.Add('fsc.exe') > $null
 
 # VCS
 $processExclusions.Add('git.exe') > $null
