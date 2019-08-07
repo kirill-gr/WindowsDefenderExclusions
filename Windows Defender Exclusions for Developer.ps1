@@ -1,229 +1,63 @@
+# TODO vars on top (like IntelliJ version)
+# List of tools:
+# Java
+# Kotlin
+# Maven
+# Gradle
+# Python
+# NodeJS
+# Git (wslgit?)
+# databases?
 # See: https://medium.com/burak-tasci/tweaking-the-environment-to-speed-up-visual-studio-79cd1920fed9
 $userPath = $env:USERPROFILE
 $pathExclusions = New-Object System.Collections.ArrayList
 $processExclusions = New-Object System.Collections.ArrayList
 
-$pathExclusions.Add('C:\Windows\Microsoft.NET') > $null
-$pathExclusions.Add('C:\Windows\assembly') > $null
-$pathExclusions.Add($userPath + '\AppData\Local\Microsoft\VisualStudio') > $null
-$pathExclusions.Add($userPath + '\AppData\Local\Microsoft\VisualStudio Services') > $null
-$pathExclusions.Add($userPath + '\AppData\Local\GitCredentialManager') > $null
-$pathExclusions.Add($userPath + '\AppData\Local\GitHubVisualStudio') > $null
-$pathExclusions.Add($userPath + '\AppData\Local\Microsoft\dotnet') > $null
-$pathExclusions.Add($userPath + '\AppData\Local\Microsoft\VSApplicationInsights') > $null
-$pathExclusions.Add($userPath + '\AppData\Local\Microsoft\VSCommon') > $null
-$pathExclusions.Add($userPath + '\AppData\Local\Temp\VSFeedbackIntelliCodeLogs') > $null
-$pathExclusions.Add($userPath + '\AppData\Roaming\Microsoft Visual Studio') > $null
-$pathExclusions.Add($userPath + '\AppData\Roaming\NuGet') > $null
-$pathExclusions.Add($userPath + '\AppData\Roaming\Visual Studio Setup') > $null
-$pathExclusions.Add($userPath + '\AppData\Roaming\vstelemetry') > $null
-$pathExclusions.Add($userPath + '\AppData\Roaming\Microsoft\VisualStudio') > $null
-$pathExclusions.Add($userPath + '\AppData\Roaming\HeidiSQL') > $null
-$pathExclusions.Add($userPath + '\.dotnet') > $null
-$pathExclusions.Add($userPath + '\.librarymanager') > $null
-$pathExclusions.Add('C:\ProgramData\Microsoft\VisualStudio') > $null
-$pathExclusions.Add('C:\ProgramData\Microsoft\NetFramework') > $null
-$pathExclusions.Add('C:\ProgramData\Microsoft VisualStudio') > $null
-$pathExclusions.Add('C:\ProgramData\MySQL') > $null
-$pathExclusions.Add('C:\ProgramData\Git') > $null
-$pathExclusions.Add('C:\Program Files (x86)\MSBuild') > $null
-$pathExclusions.Add('C:\Program Files (x86)\Microsoft Visual Studio 14.0') > $null
-$pathExclusions.Add('C:\Program Files (x86)\Microsoft Visual Studio 10.0') > $null
-$pathExclusions.Add('C:\Program Files (x86)\Microsoft Visual Studio') > $null
-$pathExclusions.Add('C:\Program Files (x86)\Microsoft SDKs') > $null
-$pathExclusions.Add('C:\Program Files (x86)\Common Files\Microsoft Shared\MSEnv') > $null
-$pathExclusions.Add('C:\Program Files (x86)\Microsoft SQL Server') > $null
-$pathExclusions.Add('C:\Program Files (x86)\Entity Framework Tools') > $null
-$pathExclusions.Add('C:\Program Files (x86)\IIS') > $null
-$pathExclusions.Add('C:\Program Files (x86)\IIS Express') > $null
-$pathExclusions.Add('C:\Program Files (x86)\Microsoft Web Tools') > $null
-$pathExclusions.Add('C:\Program Files (x86)\Microsoft.NET') > $null
-$pathExclusions.Add('C:\Program Files (x86)\MySQL') > $null
-$pathExclusions.Add('C:\Program Files (x86)\NuGet') > $null
-$pathExclusions.Add('C:\Program Files\dotnet') > $null
-$pathExclusions.Add('C:\Program Files\Microsoft SDKs') > $null
-$pathExclusions.Add('C:\Program Files\Microsoft SQL Server') > $null
-$pathExclusions.Add('C:\Program Files\IIS') > $null
-$pathExclusions.Add('C:\Program Files\IIS Express') > $null
-$pathExclusions.Add('C:\Program Files\MySQL') > $null
-$pathExclusions.Add('C:\Program Files\Git') > $null
+# IDE
+$pathExclusions.Add($userPath + '\.IntelliJIdea2019.2') > $null
+#$pathExclusions.Add('$userPath\AppData\Local\Jetbrains') > $null
+#$pathExclusions.Add('$userPath\AppData\Roaming\JetBrains') > $null
 
 # Cache Folders
-$pathExclusions.Add('$userPath\.nuget') > $null
-$pathExclusions.Add('C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files') > $null
-$pathExclusions.Add('C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Temporary ASP.NET Files') > $null
-$pathExclusions.Add('$userPath\AppData\Local\Microsoft\WebsiteCache') > $null
-$pathExclusions.Add('$userPath\AppData\Local\Jetbrains') > $null
-$pathExclusions.Add('$userPath\AppData\Roaming\Microsoft\VisualStudio') > $null
-$pathExclusions.Add('$userPath\AppData\Roaming\JetBrains') > $null
-$pathExclusions.Add('$userPath\AppData\Roaming\npm') > $null
-$pathExclusions.Add('$userPath\AppData\Roaming\npm-cache') > $null
-
-# VS
-$processExclusions.Add('vshost-clr2.exe') > $null
-$processExclusions.Add('VSInitializer.exe') > $null
-$processExclusions.Add('VSIXInstaller.exe') > $null
-$processExclusions.Add('VSLaunchBrowser.exe') > $null
-$processExclusions.Add('vsn.exe') > $null
-$processExclusions.Add('VsRegEdit.exe') > $null
-$processExclusions.Add('VSWebHandler.exe') > $null
-$processExclusions.Add('VSWebLauncher.exe') > $null
-$processExclusions.Add('XDesProc.exe') > $null
-$processExclusions.Add('Blend.exe') > $null
-$processExclusions.Add('DDConfigCA.exe') > $null
-$processExclusions.Add('devenv.exe') > $null
-$processExclusions.Add('FeedbackCollector.exe') > $null
-$processExclusions.Add('Microsoft.VisualStudio.Web.Host.exe') > $null
-$processExclusions.Add('mspdbsrv.exe') > $null
-$processExclusions.Add('MSTest.exe') > $null
-$processExclusions.Add('PerfWatson2.exe') > $null
-$processExclusions.Add('Publicize.exe') > $null
-$processExclusions.Add('QTAgent.exe') > $null
-$processExclusions.Add('QTAgent_35.exe') > $null
-$processExclusions.Add('QTAgent_40.exe') > $null
-$processExclusions.Add('QTAgent32.exe') > $null
-$processExclusions.Add('QTAgent32_35.exe') > $null
-$processExclusions.Add('QTAgent32_40.exe') > $null
-$processExclusions.Add('QTDCAgent.exe') > $null
-$processExclusions.Add('QTDCAgent32.exe') > $null
-$processExclusions.Add('StorePID.exe') > $null
-$processExclusions.Add('T4VSHostProcess.exe') > $null
-$processExclusions.Add('TailoredDeploy.exe') > $null
-$processExclusions.Add('TCM.exe') > $null
-$processExclusions.Add('TextTransform.exe') > $null
-$processExclusions.Add('TfsLabConfig.exe') > $null
-$processExclusions.Add('UserControlTestContainer.exe') > $null
-$processExclusions.Add('vb7to8.exe') > $null
-$processExclusions.Add('VcxprojReader.exe') > $null
-$processExclusions.Add('VsDebugWERHelper.exe') > $null
-$processExclusions.Add('VSFinalizer.exe') > $null
-$processExclusions.Add('VsGa.exe') > $null
-$processExclusions.Add('VSHiveStub.exe') > $null
-$processExclusions.Add('vshost.exe') > $null
-$processExclusions.Add('vshost32.exe') > $null
-$processExclusions.Add('vshost32-clr2.exe') > $null
-
-# VS Code
-$processExclusions.Add('Code - Insiders.exe') > $null
-$processExclusions.Add('Code.exe') > $null
+$pathExclusions.Add($userPath + '\.m2') > $null
+$pathExclusions.Add($userPath + '\.gradle') > $null
+#$pathExclusions.Add('$userPath\AppData\Roaming\npm') > $null
+#$pathExclusions.Add('$userPath\AppData\Roaming\npm-cache') > $null
 
 # Runtimes, build tools
-$processExclusions.Add('dotnet.exe') > $null
-$processExclusions.Add('mono.exe') > $null
-$processExclusions.Add('mono-sgen.exe') > $null
-$processExclusions.Add('java.exe') > $null
-$processExclusions.Add('java64.exe') > $null
-$processExclusions.Add('msbuild.exe') > $null
-$processExclusions.Add('node.exe') > $null
-$processExclusions.Add('node.js') > $null
-$processExclusions.Add('perfwatson2.exe') > $null
-$processExclusions.Add('ServiceHub.Host.Node.x86.exe') > $null
-$processExclusions.Add('vbcscompiler.exe') > $null
-$processExclusions.Add('nuget.exe') > $null
-$processExclusions.Add('cake.exe') > $null
-$processExclusions.Add('packet.exe') > $null
-$processExclusions.Add('csc.exe') > $null
-$processExclusions.Add('fsc.exe') > $null
-$processExclusions.Add('mysqld.exe') > $null
-$processExclusions.Add('git.exe') > $null
-$processExclusions.Add('heidisql.exe') > $null
-
-# VCS
-$processExclusions.Add('git.exe') > $null
+#$pathExclusions.Add('$userPath\AppData\Local\kotlin') > $null
+#$pathExclusions.Add('C:\ProgramData\MySQL') > $null
+#$pathExclusions.Add('C:\ProgramData\Git') > $null
+#$pathExclusions.Add('C:\Program Files (x86)\MySQL') > $null
+#$pathExclusions.Add('C:\Program Files\MySQL') > $null
+#$pathExclusions.Add('C:\Program Files\Git') > $null
+# TODO use java dir
+# TODO use node dir
+# TODO use python dir
+# TODO use process exclusions?
+#$processExclusions.Add('java.exe') > $null
+#$processExclusions.Add('java64.exe') > $null
+#$processExclusions.Add('node.exe') > $null
+#$processExclusions.Add('node.js') > $null
+#$processExclusions.Add('mysqld.exe') > $null
+#$processExclusions.Add('git.exe') > $null
 
 # Shells
-$processExclusions.Add('git-bash.exe') > $null
-$processExclusions.Add('bash.exe') > $null
-$processExclusions.Add('powershell.exe') > $null
+#$processExclusions.Add('git-bash.exe') > $null
+#$processExclusions.Add('bash.exe') > $null
+#$processExclusions.Add('powershell.exe') > $null
 
 # All of JetBrains stuff
-$processExclusions.Add('JetBrains.EntityFramework.Runner620.exe') > $null
-$processExclusions.Add('JetBrains.MsBuild.TaskEntryPoint.exe') > $null
-$processExclusions.Add('JetBrains.Platform.Satellite.exe') > $null
-$processExclusions.Add('JetBrains.ReSharper.Features.XamlPreview.External.exe') > $null
-$processExclusions.Add('JetBrains.ReSharper.Host.exe') > $null
-$processExclusions.Add('JetBrains.ReSharper.Host64.exe') > $null
-$processExclusions.Add('JetBrains.ReSharper.Roslyn.Worker.exe') > $null
-$processExclusions.Add('JetLauncher32.exe') > $null
-$processExclusions.Add('JetLauncher32c.exe') > $null
-$processExclusions.Add('JetLauncher64.exe') > $null
-$processExclusions.Add('JetLauncher64c.exe') > $null
-$processExclusions.Add('JetLauncherIL.exe') > $null
-$processExclusions.Add('JetLauncherILc.exe') > $null
-$processExclusions.Add('OperatorsResolveCacheGenerator.exe') > $null
-$processExclusions.Add('PsiGen.exe') > $null
-$processExclusions.Add('ReSharperTestRunner32.exe') > $null
-$processExclusions.Add('ReSharperTestRunner64.exe') > $null
-$processExclusions.Add('ReSharperTestRunnerIL.exe') > $null
-$processExclusions.Add('RiderClrProcessEnumerator32.exe') > $null
-$processExclusions.Add('RiderClrProcessEnumeratorIL.exe') > $null
-$processExclusions.Add('TokenGenerator.exe') > $null
-$processExclusions.Add('xamarin-component.exe') > $null
-$processExclusions.Add('ClrStack.x64.exe') > $null
-$processExclusions.Add('ClrStack.x86.exe') > $null
-$processExclusions.Add('CsLex.exe') > $null
-$processExclusions.Add('ErrorsGen.exe') > $null
-$processExclusions.Add('JetBrains.Debugger.Worker.exe') > $null
-$processExclusions.Add('JetBrains.Debugger.Worker32c.exe') > $null
-$processExclusions.Add('JetBrains.Debugger.Worker64c.exe') > $null
-$processExclusions.Add('dotPeek32.exe') > $null
-$processExclusions.Add('dotPeek64.exe') > $null
-$processExclusions.Add('DotTabWellScattered32.exe') > $null
-$processExclusions.Add('DotTabWellScattered64.exe') > $null
-$processExclusions.Add('DotTabWellScatteredIL.exe') > $null
-$processExclusions.Add('JetBrains.Platform.Installer.Bootstrap.exe') > $null
-$processExclusions.Add('JetBrains.Platform.Installer.Cleanup.exe') > $null
-$processExclusions.Add('JetBrains.Platform.Installer.exe') > $null
-$processExclusions.Add('CleanUpProfiler.x64.exe') > $null
-$processExclusions.Add('CleanUpProfiler.x86.exe') > $null
-$processExclusions.Add('Configuration2Xml32.exe') > $null
-$processExclusions.Add('Configuration2Xml64.exe') > $null
-$processExclusions.Add('ConsoleProfiler.exe') > $null
-$processExclusions.Add('dotTrace32.exe') > $null
-$processExclusions.Add('dotTrace64.exe') > $null
-$processExclusions.Add('DotTraceLauncher.exe') > $null
-$processExclusions.Add('dotTraceView32.exe') > $null
-$processExclusions.Add('dotTraceView64.exe') > $null
-$processExclusions.Add('JetBrains.Common.ElevationAgent.exe') > $null
-$processExclusions.Add('JetBrains.Common.ExternalStorage.exe') > $null
-$processExclusions.Add('JetBrains.Common.ExternalStorage.x86.exe') > $null
-$processExclusions.Add('JetBrains.dotTrace.IntegrationDemo.exe') > $null
-$processExclusions.Add('Reporter.exe') > $null
-$processExclusions.Add('SnapshotStat.exe') > $null
-$processExclusions.Add('Timeline32.exe') > $null
-$processExclusions.Add('Timeline64.exe') > $null
-$processExclusions.Add('dotMemory.UI.32.exe') > $null
-$processExclusions.Add('dotMemory.UI.64.exe') > $null
-$processExclusions.Add('dotMemoryUnit.exe') > $null
-$processExclusions.Add('JetBrains.dotMemory.Console.SingleExe.exe') > $null
-$processExclusions.Add('JetBrains.dotMemoryUnit.Server.exe') > $null
-$processExclusions.Add('restarter.exe') > $null
-$processExclusions.Add('rider64.exe') > $null
-$processExclusions.Add('runnerw.exe') > $null
-$processExclusions.Add('runnerw64.exe') > $null
-$processExclusions.Add('WinProcessListHelper.exe') > $null
-$processExclusions.Add('elevator.exe') > $null
-$processExclusions.Add('fsnotifier.exe') > $null
-$processExclusions.Add('fsnotifier64.exe') > $null
-$processExclusions.Add('launcher.exe') > $null
-$processExclusions.Add('NGen Rider Assemblies.exe') > $null
-$processExclusions.Add('idea.exe') > $null
-$processExclusions.Add('idea64.exe') > $null
-$processExclusions.Add('JetBrains.Etw.Collector.Host.exe') > $null
+#$processExclusions.Add('elevator.exe') > $null
+#$processExclusions.Add('fsnotifier.exe') > $null
+#$processExclusions.Add('fsnotifier64.exe') > $null
+#$processExclusions.Add('launcher.exe') > $null
+# TODO use intellij dir?
+#$processExclusions.Add('idea.exe') > $null
+#$processExclusions.Add('idea64.exe') > $null
 
-# JB Toolbox
-$processExclusions.Add('jetbrains-toolbox.exe') > $null
-$processExclusions.Add('jetbrains-toolbox-cef.exe') > $null
-$processExclusions.Add('jetbrains-toolbox-cef-helper.exe') > $null
-
-# Unity
-$processExclusions.Add('UnityHelper.exe') > $null
-$processExclusions.Add('Unity.exe') > $null
-$processExclusions.Add('UnityShaderCompiler.exe') > $null
-$processExclusions.Add('UnityYAMLMerge.exe') > $null
-$processExclusions.Add('UnityCrashHandler64.exe') > $null
-
-Write-Host "This script will create Windows Defender exclusions for common Visual Studio folders and processes."
+Write-Host "This script will create Windows Defender exclusions for common folders used by development tools"
+Write-Host "Must be run with administrator rights"
 Write-Host ""
 $projectsFolder = Read-Host 'What is the path to your Projects folder? (example: c:\projects)'
 
